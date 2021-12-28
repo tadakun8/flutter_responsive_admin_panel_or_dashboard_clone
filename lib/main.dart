@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Admin Panel',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Constants.bgColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+            .apply(bodyColor: Colors.white),
+        canvasColor: Constants.secondaryColor,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
