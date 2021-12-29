@@ -11,7 +11,7 @@ class DashBoardScreen extends StatelessWidget {
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Constants.defaultPadding),
         child: Column(
-          children: [Header()],
+          children: const [Header()],
         ),
       ),
     );
