@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/responsive.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
@@ -7,13 +8,24 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: const [
-      // Searchfield()
-      Expanded(
+    return Row(children: [
+      if (!Responsive.isDesktop(context))
+        IconButton(
+            onPressed: Scaffold.of(context).openDrawer,
+            icon: const Icon(Icons.menu)),
+      if (!Responsive.isMobile(context))
+        Text(
+          "Dashboard",
+          style: Theme.of(context).textTheme.headline6,
+        ),
+      if (!Responsive.isMobile(context))
+        Spacer(
+          flex: Responsive.isDesktop(context) ? 2 : 1,
+        ),
+      const Expanded(
         child: SearchField(),
       ),
-      // ProfileCard()
-      ProfileCard()
+      const ProfileCard()
     ]);
   }
 }
@@ -40,11 +52,12 @@ class ProfileCard extends StatelessWidget {
             "assets/images/profile_pic.png",
             height: 38,
           ),
-          const Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: Constants.defaultPadding / 2),
-            child: Text('Angelina Jolie'),
-          ),
+          if (!Responsive.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: Constants.defaultPadding / 2),
+              child: Text('Angelina Jolie'),
+            ),
           const Icon(Icons.keyboard_arrow_down)
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/dashboard_screen.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/responsive.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/main/components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
@@ -8,16 +9,17 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const SideMenu(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            // Sidemenu
+          children: [
             // It takes 1/6 part of the screen
-            Expanded(flex: 1, child: SideMenu()),
+            if (Responsive.isDesktop(context))
+              const Expanded(flex: 1, child: SideMenu()),
             // DashboardScreen
             // It takes 5/6 part of the screen
-            Expanded(flex: 5, child: DashBoardScreen()),
+            const Expanded(flex: 5, child: DashBoardScreen()),
           ],
         ),
       ),
