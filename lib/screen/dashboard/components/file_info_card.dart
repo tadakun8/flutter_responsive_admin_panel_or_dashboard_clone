@@ -48,6 +48,10 @@ class FileInfoCard extends StatelessWidget {
             // If the string is long, add an "..." at the end.
             overflow: TextOverflow.ellipsis,
           ),
+          ProgressLine(
+            color: info.color,
+            percentage: info.percentage,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,5 +74,42 @@ class FileInfoCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ProgressLine extends StatelessWidget {
+  const ProgressLine({
+    Key? key,
+    this.color = Constants.primaryColor,
+    required this.percentage,
+  }) : super(key: key);
+
+  final Color? color;
+  final int? percentage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Container(
+        width: double.infinity,
+        height: 5,
+        decoration: BoxDecoration(
+          color: color!.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            width: constraints.maxWidth * (percentage! / 100),
+            height: 5,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(10),
+            ),
+          );
+        },
+      ),
+    ]);
   }
 }
