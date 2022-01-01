@@ -35,6 +35,8 @@ class MyFiles extends StatelessWidget {
         const SizedBox(
           height: Constants.defaultPadding,
         ),
+
+        // TODO: After creating the detail screen, make it responsive.
         const FileInfoCardGridView()
       ],
     );
@@ -61,7 +63,7 @@ class FileInfoCardGridView extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: Constants.defaultPadding,
         mainAxisSpacing: Constants.defaultPadding,
-        childAspectRatio: childAspectRatio,
+        childAspectRatio: 1,
       ),
       itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
     );
