@@ -39,6 +39,8 @@ dependencies:
 
   flutter_svg: ^1.0.0
 
+  data_table_2: ^2.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

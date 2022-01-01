@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/header.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/my_files.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/recent_files.dart';
 
 class DashBoardScreen extends StatelessWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
@@ -25,6 +26,8 @@ class DashBoardScreen extends StatelessWidget {
                   child: Column(
                     children: const [
                       MyFiles(),
+                      SizedBox(height: Constants.defaultPadding),
+                      RecentFiles()
                     ],
                   ),
                 ),
