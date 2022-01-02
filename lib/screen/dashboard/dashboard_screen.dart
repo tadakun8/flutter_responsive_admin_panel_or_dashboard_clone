@@ -3,6 +3,7 @@ import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/header.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/my_files.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/recent_files.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/storage_detail.dart';
 
 class DashBoardScreen extends StatelessWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
@@ -31,8 +32,12 @@ class DashBoardScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(
+                  width: Constants.defaultPadding,
+                ),
+                const Expanded(flex: 2, child: StorageDetail())
               ],
-            )
+            ),
           ],
         ),
       ),
