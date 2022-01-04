@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart';
+import 'package:flutter_responsive_admin_panel_or_dashboard_clone/responsive.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/header.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/my_files.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/screen/dashboard/components/recent_files.dart';
@@ -25,17 +26,22 @@ class DashBoardScreen extends StatelessWidget {
                 Expanded(
                   flex: 5,
                   child: Column(
-                    children: const [
-                      MyFiles(),
-                      SizedBox(height: Constants.defaultPadding),
-                      RecentFiles()
+                    children: [
+                      const MyFiles(),
+                      const SizedBox(height: Constants.defaultPadding),
+                      const RecentFiles(),
+                      if (Responsive.isMobile(context))
+                        const SizedBox(height: Constants.defaultPadding),
+                      if (Responsive.isMobile(context)) const StorageDetail(),
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: Constants.defaultPadding,
-                ),
-                const Expanded(flex: 2, child: StorageDetail())
+                if (!Responsive.isMobile(context))
+                  const SizedBox(
+                    width: Constants.defaultPadding,
+                  ),
+                if (!Responsive.isMobile(context))
+                  const Expanded(flex: 2, child: StorageDetail())
               ],
             ),
           ],
