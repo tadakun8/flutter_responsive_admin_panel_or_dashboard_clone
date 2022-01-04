@@ -96,6 +96,7 @@ class SearchField extends StatelessWidget {
         //   ),
         // ),
         suffixIcon: Container(
+          margin: const EdgeInsets.only(right: Constants.defaultPadding * 0.5),
           decoration: BoxDecoration(
             color: Constants.primaryColor,
             borderRadius: BorderRadius.circular(10),
