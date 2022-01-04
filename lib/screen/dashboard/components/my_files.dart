@@ -9,6 +9,7 @@ class MyFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -35,9 +36,16 @@ class MyFiles extends StatelessWidget {
         const SizedBox(
           height: Constants.defaultPadding,
         ),
-
-        // TODO: After creating the detail screen, make it responsive.
-        const FileInfoCardGridView()
+        Responsive(
+          mobile: FileInfoCardGridView(
+            crossAxisCount: _size.width < 650 ? 2 : 4,
+            childAspectRatio: _size.width < 650 ? 1.3 : 1,
+          ),
+          tablet: const FileInfoCardGridView(),
+          desktop: FileInfoCardGridView(
+            childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
+          ),
+        )
       ],
     );
   }
