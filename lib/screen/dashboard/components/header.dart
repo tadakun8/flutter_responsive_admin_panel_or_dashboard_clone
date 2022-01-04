@@ -22,6 +22,12 @@ class Header extends StatelessWidget {
         Spacer(
           flex: Responsive.isDesktop(context) ? 2 : 1,
         ),
+
+      // Add a space to prevent the water splash part of the drawer from covering the SearchField().
+      if (Responsive.isMobile(context))
+        const SizedBox(
+          width: Constants.defaultPadding * 1.25,
+        ),
       const Expanded(
         child: SearchField(),
       ),

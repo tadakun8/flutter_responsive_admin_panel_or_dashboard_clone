@@ -9,6 +9,10 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // NOTE: Scaffold's default drawer padding is not adjustable.
+      // So if you want to adjust it, you'll have to customize it.
+      // (the following link is helpful)
+      // https://stackoverflow.com/questions/59554348/how-can-i-change-drawer-icon-in-flutter
       drawer: const SideMenu(),
       body: SafeArea(
         child: Row(
