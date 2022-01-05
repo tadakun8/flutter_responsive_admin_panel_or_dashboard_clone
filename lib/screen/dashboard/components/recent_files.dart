@@ -1,4 +1,3 @@
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/constants.dart';
 import 'package:flutter_responsive_admin_panel_or_dashboard_clone/models/recent_file_info.dart';
@@ -24,9 +23,10 @@ class RecentFiles extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: DataTable2(
+            child: DataTable(
+              horizontalMargin: 0,
               columnSpacing: Constants.defaultPadding,
-              minWidth: 600,
+              // minWidth: 600,
               columns: const [
                 DataColumn(
                   label: Text("File Name"),

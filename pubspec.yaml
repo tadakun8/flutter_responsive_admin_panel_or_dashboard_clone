@@ -39,7 +39,8 @@ dependencies:
 
   flutter_svg: ^1.0.0
 
-  data_table_2: ^2.2.0
+  # origin used the following
+  # data_table_2: ^2.2.0
 
   fl_chart: ^0.40.6
 
