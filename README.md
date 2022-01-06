@@ -4,4 +4,4 @@ This project is a clone of [Flutter-Responsive-Admin-Panel-or-Dashboard](https:/
 
 ## Demo
 
-Getting Ready...
+![demo](./demo.gif)
